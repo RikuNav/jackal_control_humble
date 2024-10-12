@@ -73,6 +73,7 @@ def generate_launch_description():
     )
 
     node_odometry = Node(
+        namespace='localization',
         package='jackal_control_humble',
         executable='odometry',
         output='screen',
@@ -81,11 +82,13 @@ def generate_launch_description():
     )
 
     node_ekf = Node(
+        namespace='localization',
         package='robot_localization',
         executable='ekf_node',
         name='ekf_node',
         output='screen',
         parameters=[filepath_config_ekf],
+        remappings={('/odometry/filtered', '/platform/odom/filtered')}
     )
 
     micro_ros_agent = Node(
