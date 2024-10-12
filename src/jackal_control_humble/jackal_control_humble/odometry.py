@@ -10,7 +10,7 @@ from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy
 
 from tf_transformations import quaternion_from_euler
 
-class Odometry(Node):
+class OdometryNode(Node):
     def __init__(self):
         super().__init__('odometry')
 
@@ -97,7 +97,7 @@ class Odometry(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    odometry_node = Odometry()
+    odometry_node = OdometryNode()
     rclpy.spin(odometry_node)
     odometry_node.destroy_node()
     rclpy.shutdown()
