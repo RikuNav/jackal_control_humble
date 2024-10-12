@@ -73,7 +73,6 @@ def generate_launch_description():
     )
 
     node_odometry = Node(
-        namespace='localization',
         package='jackal_control_humble',
         executable='odometry',
         output='screen',
