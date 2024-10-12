@@ -1,6 +1,5 @@
 import rclpy
 import numpy as np
-import time
 
 from rclpy.node import Node 
 from clearpath_platform_msgs.msg import Feedback
@@ -21,7 +20,9 @@ class OdometryNode(Node):
         self.wheels_radius = self.get_parameter('wheels_radius').get_parameter_value().double_value
         
         # Internal Variables
-        self.differential_drive_jacobian_matrix = lambda theta : np.array([[np.cos(theta)/2, np.cos(theta)/2],[np.sin(theta)/2, np.sin(theta)/2],[-1/self.wheels_radius, 1/self.wheels_radius]])
+        self.differential_drive_jacobian_matrix = lambda theta : np.array([[np.cos(theta)/2, np.cos(theta)/2],
+                                                                            [np.sin(theta)/2, np.sin(theta)/2],
+                                                                            [-1/self.wheels_radius, 1/self.wheels_radius]])
 
         self.x, self.y, self.theta = 0, 0, 0
 
@@ -80,7 +81,7 @@ class OdometryNode(Node):
         odom_msg.pose.pose.position.y = self.y
         odom_msg.pose.pose.position.z = 0.0
 
-        # Convert theta to quaternion
+        # Convert theta to quaternion and Set quaternion
         quat = quaternion_from_euler(0, 0, self.theta)
         odom_msg.pose.pose.orientation.x = quat[0]
         odom_msg.pose.pose.orientation.y = quat[1]

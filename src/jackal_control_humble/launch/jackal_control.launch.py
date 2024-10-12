@@ -72,7 +72,7 @@ def generate_launch_description():
         package='jackal_control_humble',
         executable='odometry',
         output='screen',
-        name='odometrydddd',
+        name='odometry',
         parameters=[filepath_config_jackal]
     )
 
