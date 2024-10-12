@@ -82,8 +82,10 @@ class OdometryNode(Node):
 
         # Convert theta to quaternion
         quat = quaternion_from_euler(0, 0, self.theta)
-        print(quat)
-        #odom_msg.pose.pose.orientation = Quaternion(quat)
+        odom_msg.pose.pose.orientation.x = quat[0]
+        odom_msg.pose.pose.orientation.y = quat[1]
+        odom_msg.pose.pose.orientation.z = quat[2]
+        odom_msg.pose.pose.orientation.w = quat[3]
 
         # Set velocity
         odom_msg.twist.twist.linear.x = speeds[0]
