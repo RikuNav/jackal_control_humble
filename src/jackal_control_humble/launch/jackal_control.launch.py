@@ -19,7 +19,7 @@ def generate_launch_description():
     )
 
     filepath_config_jackal = PathJoinSubstitution(
-        [FindPackageShare(package_name), 'config', 'jackal_config.yaml']
+        [FindPackageShare(package_name), 'config', 'jackal.yaml']
     )
 
     filepath_config_joy = PathJoinSubstitution(
