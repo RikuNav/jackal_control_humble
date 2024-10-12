@@ -1,6 +1,3 @@
-
-import os
-
 from ament_index_python import get_package_share_directory
 from launch import LaunchContext, LaunchDescription
 from launch.substitutions import EnvironmentVariable, PathJoinSubstitution
@@ -66,7 +63,7 @@ def generate_launch_description():
         executable='twist_mux_2_cmd_drive',
         output='screen',
         name='twist_mux_2_cmd_drive',
-        parameters=[jackal_config]
+        parameters=[filepath_config_jackal]
     )
 
     micro_ros_agent = Node(
