@@ -25,7 +25,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'twist_mux_2_cmd_drive = jackal_control_humble.twist_mux_2_cmd_drive:main'
+            'twist_mux_2_cmd_drive = jackal_control_humble.twist_mux_2_cmd_drive:main',
+            'odometry = jackal_control_humble.odometry:main'
         ],
     },
 )

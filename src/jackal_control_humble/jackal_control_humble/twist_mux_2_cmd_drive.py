@@ -10,8 +10,8 @@ class TwistMux2CmdDrive(Node):
         super().__init__('twist_mux_2_cmd_drive')
 
         # Jackal Parameters
-        self.declare_parameter('wheels_length', 0.3765)
-        self.declare_parameter('wheels_radius', 0.095)
+        self.declare_parameter('wheels_length', 0.36)
+        self.declare_parameter('wheels_radius', 0.098)
         self.wheels_length = self.get_parameter('wheels_length').get_parameter_value().double_value
         self.wheels_radius = self.get_parameter('wheels_radius').get_parameter_value().double_value
 
@@ -24,16 +24,15 @@ class TwistMux2CmdDrive(Node):
         self.create_timer(self.timer_period, self.timer_callback)
 
         # Twist Mux Subscription
-        self.create_subscription(
-            Twist,
-            '/jackal_velocity_controller/cmd_vel_unstamped',
-            self.twist_mux_callback,
-            QoSProfile(
-                reliability=QoSReliabilityPolicy.BEST_EFFORT,
-                history=QoSHistoryPolicy.KEEP_LAST,
-                depth=1
-            )
-        )
+        self.create_subscription(Twist,
+                                    '/jackal_velocity_controller/cmd_vel_unstamped',
+                                    self.twist_mux_callback,
+                                    QoSProfile(
+                                        reliability=QoSReliabilityPolicy.BEST_EFFORT,
+                                        history=QoSHistoryPolicy.KEEP_LAST,
+                                        depth=5
+                                    )
+                                )
 
         # Jackal Publisher
         self.publisher = self.create_publisher(Drive,
@@ -41,7 +40,7 @@ class TwistMux2CmdDrive(Node):
                                                 QoSProfile(
                                                     reliability=QoSReliabilityPolicy.BEST_EFFORT,
                                                     history=QoSHistoryPolicy.KEEP_LAST,
-                                                    depth=1
+                                                    depth=5
                                                 )
                                             )
 

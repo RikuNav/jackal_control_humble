@@ -68,6 +68,14 @@ def generate_launch_description():
         parameters=[filepath_config_jackal]
     )
 
+    node_odometry = Node(
+        package='jackal_control_humble',
+        executable='odometry',
+        output='screen',
+        name='odometrydddd',
+        parameters=[filepath_config_jackal]
+    )
+
     micro_ros_agent = Node(
         package='micro_ros_agent',
         executable='micro_ros_agent',
@@ -82,5 +90,6 @@ def generate_launch_description():
     ld.add_action(node_teleop_twist_joy)
     ld.add_action(node_twist_mux)
     ld.add_action(node_twist_mux_2_cmd_drive)
+    ld.add_action(node_odometry)
     ld.add_action(micro_ros_agent)
     return ld
