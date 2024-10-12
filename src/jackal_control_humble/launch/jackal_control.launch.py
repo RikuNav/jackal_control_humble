@@ -85,7 +85,7 @@ def generate_launch_description():
         executable='ekf_node',
         name='ekf_node',
         output='screen',
-        parameters=[config_jackal_ekf],
+        parameters=[filepath_config_ekf],
     )
 
     micro_ros_agent = Node(
