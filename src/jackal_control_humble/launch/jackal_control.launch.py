@@ -24,6 +24,7 @@ def generate_launch_description():
     )
 
     node_interactive_marker_twist_server = Node(
+        namespace='twist_server',
         package='interactive_marker_twist_server',
         executable='marker_server',
         name='twist_server_node',
@@ -59,6 +60,7 @@ def generate_launch_description():
     )
 
     node_twist_mux_2_cmd_drive = Node(
+        namespace='jackal_velocity_controller',
         package='jackal_control_humble',
         executable='twist_mux_2_cmd_drive',
         output='screen',
