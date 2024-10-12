@@ -88,7 +88,7 @@ def generate_launch_description():
         name='ekf_node',
         output='screen',
         parameters=[filepath_config_ekf],
-        remappings={('/odometry/filtered', '/platform/odom/filtered')}
+        remappings={('/localization/odometry/filtered', '/platform/odom/filtered')}
     )
 
     micro_ros_agent = Node(
