@@ -23,6 +23,10 @@ def generate_launch_description():
         [FindPackageShare(package_name), 'config', ('teleop_ps4.yaml')]
     )
 
+    filepath_config_ekf = PathJoinSubstitution(
+        [FindPackageShare(package_name), 'config', 'localization.yaml'],
+    )
+
     node_interactive_marker_twist_server = Node(
         namespace='twist_server',
         package='interactive_marker_twist_server',
@@ -76,6 +80,14 @@ def generate_launch_description():
         parameters=[filepath_config_jackal]
     )
 
+    node_ekf = Node(
+        package='robot_localization',
+        executable='ekf_node',
+        name='ekf_node',
+        output='screen',
+        parameters=[config_jackal_ekf],
+    )
+
     micro_ros_agent = Node(
         package='micro_ros_agent',
         executable='micro_ros_agent',
@@ -91,5 +103,6 @@ def generate_launch_description():
     ld.add_action(node_twist_mux)
     ld.add_action(node_twist_mux_2_cmd_drive)
     ld.add_action(node_odometry)
+    ld.add_action(node_ekf)
     ld.add_action(micro_ros_agent)
     return ld
