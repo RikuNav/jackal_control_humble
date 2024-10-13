@@ -25,4 +25,4 @@ This package provides an enhanced control interface for the Jackal robot using R
 
 Includes the boot service to enable all nodes by only turning the robot ON.
 
-<img src="rosgraph.svg" alt="SVG Example">
+<img src="rosgraph.png" alt="SVG Example">
