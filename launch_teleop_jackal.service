@@ -1,0 +1,14 @@
+[Unit]
+Description=Check for device presence and launch jackal ros2
+After=network.target
+
+[Service]
+ExecStart=/home/tomatoxplorers/.scripts/launch_teleop_jackal
+Type=simple
+Restart=on-failure
+RestartSec=10
+User=root
+
+[Install]
+WantedBy=multi-user.target
+
