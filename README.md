@@ -20,3 +20,7 @@ This package provides an enhanced control interface for the Jackal robot using R
 3. **micro-ROS MCU Nodes**:
    - Utilizes the micro-ROS agent to enable communication with the robot's microcontroller units (MCUs).
    - Supports low-level hardware access and control, such as sensor data reading and motor control.
+     
+## Services
+
+Includes the boot service to enable all nodes and allows ps4 control teleoperation by only turning the robot ON.
