@@ -23,4 +23,4 @@ This package provides an enhanced control interface for the Jackal robot using R
      
 ## Services
 
-Includes the boot service to enable all nodes and allows ps4 control teleoperation by only turning the robot ON.
+Includes the boot service to enable all nodes by only turning the robot ON.
