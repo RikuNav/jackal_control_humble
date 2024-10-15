@@ -1,4 +1,4 @@
 twist_mux_2_cmd_drive:
   ros__parameters:
-    wheels_length: 0.3765
-    wheels_radius: 0.095
+    wheels_length: 0.36
+    wheels_radius: 0.098
